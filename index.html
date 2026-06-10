@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pooja Zapadiya — A Life Full of Joy</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --saffron: #E8660A;
+    --saffron-light: #FDE8D8;
+    --marigold: #F5A623;
+    --marigold-light: #FEF3DC;
+    --kumkum: #C0392B;
+    --kumkum-light: #FAEAE9;
+    --peacock: #1A7A6E;
+    --peacock-light: #E0F2EF;
+    --text: #1C1208;
+    --text-muted: #6B5B45;
+    --surface: #FFFDF9;
+    --border: rgba(232, 102, 10, 0.15);
+    --section-gap: 6rem;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 3rem;
+    background: rgba(255,253,249,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    color: var(--saffron);
+    letter-spacing: 0.02em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--saffron); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-motif {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 80% 20%, rgba(245,166,35,0.10) 0%, transparent 45%),
+      radial-gradient(circle at 10% 80%, rgba(232,102,10,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  /* Rangoli SVG top right */
+  .rangoli-deco {
+    position: absolute;
+    top: 5rem; right: -2rem;
+    width: 320px; height: 320px;
+    opacity: 0.07;
+    pointer-events: none;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4rem 3rem 4rem 5rem;
+    position: relative;
+    z-index: 1;
+  }
+  .hero-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 1.2rem;
+  }
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 5vw, 4.8rem);
+    line-height: 1.05;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--saffron);
+  }
+  .hero-tagline {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 420px;
+    margin: 1.5rem 0 2.5rem;
+    font-weight: 300;
+  }
+  .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .tag {
+    display: inline-block;
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid;
+  }
+  .tag-saffron { background: var(--saffron-light); color: #9B3F00; border-color: rgba(232,102,10,0.3); }
+  .tag-marigold { background: var(--marigold-light); color: #7A4F00; border-color: rgba(245,166,35,0.4); }
+  .tag-peacock { background: var(--peacock-light); color: #0D4D44; border-color: rgba(26,122,110,0.3); }
+  .tag-kumkum { background: var(--kumkum-light); color: #7A1F17; border-color: rgba(192,57,43,0.3); }
+
+  .hero-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 5rem 4rem 2rem;
+    position: relative;
+    z-index: 1;
+  }
+  .portrait-wrap {
+    position: relative;
+    width: 340px;
+    height: 420px;
+  }
+  .portrait-frame {
+    width: 300px;
+    height: 380px;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    background: linear-gradient(145deg, var(--marigold-light) 0%, var(--saffron-light) 100%);
+    position: relative;
+    overflow: hidden;
+    border: 3px solid rgba(232,102,10,0.2);
+  }
+  .portrait-initials {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+  }
+  .portrait-big {
+    font-size: 7rem;
+    line-height: 1;
+    color: var(--saffron);
+    opacity: 0.3;
+    font-weight: 700;
+  }
+  .portrait-label {
+    font-size: 1rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+  }
+  .hanuman-badge {
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--saffron);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(232,102,10,0.35);
+  }
+  .hanuman-badge span { color: white; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.05em; margin-top: 2px; }
+  .deco-dot {
+    position: absolute;
+    border-radius: 50%;
+  }
+  .dot-1 { width: 14px; height: 14px; background: var(--marigold); top: 30px; right: 20px; opacity: 0.6; }
+  .dot-2 { width: 8px; height: 8px; background: var(--saffron); top: 80px; right: -10px; opacity: 0.4; }
+  .dot-3 { width: 20px; height: 20px; background: var(--peacock); bottom: 80px; left: -10px; opacity: 0.25; }
+
+  /* ── SCROLL CUE ── */
+  .scroll-cue {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    z-index: 1;
+    animation: bounce 2.5s ease-in-out infinite;
+  }
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--saffron), transparent);
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── SECTION COMMONS ── */
+  section { padding: var(--section-gap) 5rem; }
+  .section-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 0.75rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    line-height: 1.15;
+    margin-bottom: 1.25rem;
+  }
+  .divider {
+    width: 48px;
+    height: 3px;
+    background: var(--saffron);
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ── STORY ── */
+  .story-section { background: white; }
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .story-text p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--text-muted);
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+  .story-text p strong { color: var(--text); font-weight: 500; }
+  .journey-path {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .journey-stop {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    position: relative;
+  }
+  .journey-stop:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 40px;
+    bottom: -16px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--saffron), var(--marigold), var(--peacock));
+    opacity: 0.3;
+  }
+  .stop-dot {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .stop-dot-gujarat { background: var(--saffron-light); }
+  .stop-dot-pune { background: var(--peacock-light); }
+  .stop-dot-michigan { background: var(--marigold-light); }
+  .stop-info { padding-bottom: 2rem; }
+  .stop-place {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+  }
+  .stop-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── FAMILY ── */
+  .family-section { background: var(--saffron-light); }
+  .family-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .family-card {
+    background: white;
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    border: 1px solid rgba(232,102,10,0.12);
+    transition: transform 0.2s;
+  }
+  .family-card:hover { transform: translateY(-4px); }
+  .family-avatar {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .av-pooja { background: var(--saffron-light); color: var(--saffron); }
+  .av-ajay { background: var(--peacock-light); color: var(--peacock); }
+  .av-kridha { background: var(--marigold-light); color: #7A4F00; }
+  .family-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+  }
+  .family-role {
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--saffron);
+    margin-bottom: 0.75rem;
+  }
+  .family-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── PASSIONS ── */
+  .passions-section { background: var(--surface); }
+  .passions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.25rem;
+  }
+  .passion-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.5rem;
+    background: white;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .passion-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 3px 3px 0 0;
+  }
+  .passion-card.pc-saffron::before { background: var(--saffron); }
+  .passion-card.pc-marigold::before { background: var(--marigold); }
+  .passion-card.pc-peacock::before { background: var(--peacock); }
+  .passion-card.pc-kumkum::before { background: var(--kumkum); }
+  .passion-card:hover { border-color: rgba(232,102,10,0.4); transform: translateY(-3px); }
+  .passion-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .passion-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+  .passion-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── DEVOTION ── */
+  .devotion-section {
+    background: #1C0A02;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  .devotion-bg {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 30% 50%, rgba(232,102,10,0.18) 0%, transparent 55%),
+      radial-gradient(circle at 80% 30%, rgba(245,166,35,0.12) 0%, transparent 45%);
+    pointer-events: none;
+  }
+  .devotion-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 680px;
+  }
+  .devotion-section .section-eyebrow { color: var(--marigold); }
+  .devotion-section .section-title { color: white; }
+  .devotion-section .divider { background: var(--marigold); }
+  .devotion-text {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: rgba(255,255,255,0.72);
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+  .jai-hanuman {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1.8rem;
+    border: 1px solid rgba(245,166,35,0.5);
+    border-radius: 999px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--marigold);
+    letter-spacing: 0.05em;
+  }
+  .diya { font-size: 1.4rem; }
+
+  /* ── TRAVEL ── */
+  .travel-section { background: white; }
+  .travel-intro {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  .travel-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .place-card {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .place-color {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+  .pc-gujarat { background: linear-gradient(135deg, #FDE8D8, #FAC775); }
+  .pc-pune { background: linear-gradient(135deg, #E0F2EF, #9FE1CB); }
+  .pc-michigan { background: linear-gradient(135deg, #E6F1FB, #B5D4F4); }
+  .place-body { padding: 1.25rem; }
+  .place-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+  }
+  .place-desc { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+  /* ── FACTS ── */
+  .facts-section { background: var(--marigold-light); }
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .fact-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.75rem 1.25rem;
+    text-align: center;
+    border: 1px solid rgba(245,166,35,0.2);
+  }
+  .fact-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+  .fact-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    color: var(--saffron);
+    margin-bottom: 0.3rem;
+  }
+  .fact-label { font-size: 0.82rem; color: var(--text-muted); font-weight: 500; letter-spacing: 0.05em; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--text);
+    color: rgba(255,255,255,0.55);
+    text-align: center;
+    padding: 3rem 5rem;
+    font-size: 0.85rem;
+    line-height: 1.8;
+  }
+  footer strong { color: rgba(255,255,255,0.85); font-weight: 500; }
+  .footer-om {
+    display: block;
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    color: var(--saffron);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: auto; padding: 6rem 1.5rem 3rem; }
+    .hero-left { padding: 0; }
+    .hero-right { display: none; }
+    section { padding: 3.5rem 1.5rem; }
+    .story-grid, .family-grid, .travel-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .facts-grid { grid-template-columns: repeat(2, 1fr); }
+    footer { padding: 2.5rem 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Pooja Zapadiya</div>
+  <ul class="nav-links">
+    <li><a href="#story">Story</a></li>
+    <li><a href="#family">Family</a></li>
+    <li><a href="#passions">Passions</a></li>
+    <li><a href="#devotion">Devotion</a></li>
+    <li><a href="#travels">Travels</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+  <div class="hero-bg-motif"></div>
+
+  <!-- Rangoli-inspired decorative SVG -->
+  <svg class="rangoli-deco" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="150" cy="150" r="140" stroke="#E8660A" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <circle cx="150" cy="150" r="100" stroke="#F5A623" stroke-width="1" stroke-dasharray="4 6"/>
+    <circle cx="150" cy="150" r="60" stroke="#E8660A" stroke-width="1.5"/>
+    <circle cx="150" cy="150" r="20" stroke="#F5A623" stroke-width="2"/>
+    <line x1="150" y1="10" x2="150" y2="290" stroke="#E8660A" stroke-width="0.8" stroke-dasharray="3 5"/>
+    <line x1="10" y1="150" x2="290" y2="150" stroke="#E8660A" stroke-width="0.8" stroke-dasharray="3 5"/>
+    <line x1="51" y1="51" x2="249" y2="249" stroke="#F5A623" stroke-width="0.8" stroke-dasharray="3 5"/>
+    <line x1="249" y1="51" x2="51" y2="249" stroke="#F5A623" stroke-width="0.8" stroke-dasharray="3 5"/>
+    <!-- petals -->
+    <ellipse cx="150" cy="80" rx="12" ry="28" fill="#E8660A" opacity="0.4"/>
+    <ellipse cx="150" cy="220" rx="12" ry="28" fill="#E8660A" opacity="0.4"/>
+    <ellipse cx="80" cy="150" rx="28" ry="12" fill="#F5A623" opacity="0.4"/>
+    <ellipse cx="220" cy="150" rx="28" ry="12" fill="#F5A623" opacity="0.4"/>
+    <ellipse cx="100" cy="100" rx="12" ry="28" transform="rotate(-45 100 100)" fill="#E8660A" opacity="0.3"/>
+    <ellipse cx="200" cy="200" rx="12" ry="28" transform="rotate(-45 200 200)" fill="#E8660A" opacity="0.3"/>
+    <ellipse cx="200" cy="100" rx="12" ry="28" transform="rotate(45 200 100)" fill="#F5A623" opacity="0.3"/>
+    <ellipse cx="100" cy="200" rx="12" ry="28" transform="rotate(45 100 200)" fill="#F5A623" opacity="0.3"/>
+  </svg>
+
+  <div class="hero-left">
+    <p class="hero-eyebrow">Welcome to my little corner of the world</p>
+    <h1 class="hero-name">Pooja<br><em>Zapadiya</em></h1>
+    <p class="hero-tagline">
+      A Gujarati heart who finds joy in every spice, every puzzle, every game board,
+      and every city skyline — from the shores of Gujarat to the Great Lakes of Michigan.
+    </p>
+    <div class="hero-tags">
+      <span class="tag tag-saffron">🌏 Traveller</span>
+      <span class="tag tag-marigold">🍛 Food Lover</span>
+      <span class="tag tag-peacock">🎲 Game Enthusiast</span>
+      <span class="tag tag-kumkum">🛍️ Shopaholic</span>
+      <span class="tag tag-saffron">🎵 Music Lover</span>
+      <span class="tag tag-marigold">🎯 Perfectionist</span>
+      <span class="tag tag-peacock">💄 Makeup Explorer</span>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="portrait-wrap">
+      <div class="portrait-frame">
+        <div class="portrait-initials">
+          <span class="portrait-big">P</span>
+          <span class="portrait-label">Pooja</span>
+        </div>
+      </div>
+      <div class="hanuman-badge">
+        <span style="font-size:1.5rem;">🙏</span>
+        <span>Hanuman</span>
+      </div>
+      <div class="deco-dot dot-1"></div>
+      <div class="deco-dot dot-2"></div>
+      <div class="deco-dot dot-3"></div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</header>
+
+<!-- STORY -->
+<section id="story" class="story-section">
+  <div class="story-grid">
+    <div class="story-text">
+      <p class="section-eyebrow">My Story</p>
+      <h2 class="section-title">A Journey of<br>Three Homes</h2>
+      <div class="divider"></div>
+      <p>
+        Born and raised in the warmth of <strong>Gujarat</strong>, I carry the vibrant colours
+        of my roots everywhere I go — in my cooking, my love for celebrations,
+        and my deep faith.
+      </p>
+      <p>
+        Life took me to <strong>Pune</strong>, where the rains and the streets taught me a
+        new rhythm of life. Every phase has added a new layer to who I am.
+      </p>
+      <p>
+        Today, I call <strong>Michigan, USA</strong> home — alongside my wonderful husband
+        Ajay and our little star, Kridha. Far from Gujarat, but Gujarat never
+        leaves the heart.
+      </p>
+      <p>
+        I am a homemaker in the truest, fullest sense — and I wear that with pride.
+        The house I tend is filled with laughter, the smell of good food, music,
+        and the tiny footsteps of a curious girl growing too fast.
+      </p>
+    </div>
+
+    <div class="journey-path">
+      <div class="journey-stop">
+        <div class="stop-dot stop-dot-gujarat">🌅</div>
+        <div class="stop-info">
+          <p class="stop-place">Gujarat, India</p>
+          <p class="stop-desc">The beginning — where festivals are grand, food is spectacular,
+          and family is everything. Home of garba nights, kite festivals, and the
+          strongest chai you'll ever taste.</p>
+        </div>
+      </div>
+      <div class="journey-stop">
+        <div class="stop-dot stop-dot-pune">🌿</div>
+        <div class="stop-info">
+          <p class="stop-place">Pune, India</p>
+          <p class="stop-desc">A city of energy and culture. New friends, new experiences,
+          and a growing sense of self — Pune was an adventure that shaped
+          many of her best memories.</p>
+        </div>
+      </div>
+      <div class="journey-stop">
+        <div class="stop-dot stop-dot-michigan">❄️</div>
+        <div class="stop-info">
+          <p class="stop-place">Michigan, USA</p>
+          <p class="stop-desc">Snow, seasons, and a whole new world to explore. Building
+          a home abroad with Ajay and Kridha — bringing Gujarat's warmth to
+          America's Midwest.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section id="family" class="family-section">
+  <p class="section-eyebrow">My World</p>
+  <h2 class="section-title">The People I Live For</h2>
+  <div class="divider"></div>
+  <div class="family-grid">
+    <div class="family-card">
+      <div class="family-avatar av-pooja">P</div>
+      <p class="family-name">Pooja</p>
+      <p class="family-role">The Heart of the Home</p>
+      <p class="family-desc">Cook, traveller, puzzle-solver, music lover, and proud homemaker.
+      Somewhere between a rubik's cube and a hot cup of chai, you'll find her.</p>
+    </div>
+    <div class="family-card">
+      <div class="family-avatar av-ajay">A</div>
+      <p class="family-name">Ajay</p>
+      <p class="family-role">The Husband</p>
+      <p class="family-desc">Her partner through every city, every journey, and every
+      chapter of life. Together they make Michigan feel like home.</p>
+    </div>
+    <div class="family-card">
+      <div class="family-avatar av-kridha">K</div>
+      <p class="family-name">Kridha</p>
+      <p class="family-role">The Little Star</p>
+      <p class="family-desc">Their daughter, their joy, their daily miracle. She is growing up
+      between two worlds — and thriving in both.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PASSIONS -->
+<section id="passions" class="passions-section">
+  <p class="section-eyebrow">What Makes Me, Me</p>
+  <h2 class="section-title">Passions &amp; Pursuits</h2>
+  <div class="divider"></div>
+  <div class="passions-grid">
+    <div class="passion-card pc-marigold">
+      <div class="passion-icon">🍛</div>
+      <p class="passion-title">Food &amp; Cooking</p>
+      <p class="passion-desc">From Gujarati dal-dhokli to exploring new cuisines — food is her love language.</p>
+    </div>
+    <div class="passion-card pc-saffron">
+      <div class="passion-icon">🌍</div>
+      <p class="passion-title">Travelling</p>
+      <p class="passion-desc">Every new place is a story. She collects cities the way others collect souvenirs.</p>
+    </div>
+    <div class="passion-card pc-peacock">
+      <div class="passion-icon">🎵</div>
+      <p class="passion-title">Music</p>
+      <p class="passion-desc">Music is the soundtrack to every moment — cooking, cleaning, daydreaming.</p>
+    </div>
+    <div class="passion-card pc-kumkum">
+      <div class="passion-icon">🛍️</div>
+      <p class="passion-title">Shopping</p>
+      <p class="passion-desc">A discerning eye, a knack for the perfect find. Shopping is not a habit, it's a skill.</p>
+    </div>
+    <div class="passion-card pc-marigold">
+      <div class="passion-icon">💄</div>
+      <p class="passion-title">Makeup &amp; Beauty</p>
+      <p class="passion-desc">She explores the world of beauty with curiosity and a perfectionist's precision.</p>
+    </div>
+    <div class="passion-card pc-saffron">
+      <div class="passion-icon">🎯</div>
+      <p class="passion-title">Juggling</p>
+      <p class="passion-desc">Balls in the air — literally. A skill that also perfectly describes daily life as a mother.</p>
+    </div>
+    <div class="passion-card pc-peacock">
+      <div class="passion-icon">🧩</div>
+      <p class="passion-title">Rubik's Cube</p>
+      <p class="passion-desc">There's something deeply satisfying about bringing order to chaos, one twist at a time.</p>
+    </div>
+    <div class="passion-card pc-kumkum">
+      <div class="passion-icon">🔢</div>
+      <p class="passion-title">Sudoku</p>
+      <p class="passion-desc">Logic, patience, and a sharp mind — her morning puzzle ritual is non-negotiable.</p>
+    </div>
+    <div class="passion-card pc-marigold">
+      <div class="passion-icon">♟️</div>
+      <p class="passion-title">Chess</p>
+      <p class="passion-desc">Thinking three moves ahead, on the board and in life.</p>
+    </div>
+    <div class="passion-card pc-saffron">
+      <div class="passion-icon">🎯</div>
+      <p class="passion-title">Carrom</p>
+      <p class="passion-desc">The classic board game — she plays with the focus of a champion and the joy of a child.</p>
+    </div>
+    <div class="passion-card pc-peacock">
+      <div class="passion-icon">🃏</div>
+      <p class="passion-title">UNO &amp; Games</p>
+      <p class="passion-desc">Family game nights are her domain. She plays to win, but laughs just as hard when she loses.</p>
+    </div>
+    <div class="passion-card pc-kumkum">
+      <div class="passion-icon">✨</div>
+      <p class="passion-title">Perfectionist</p>
+      <p class="passion-desc">If it's worth doing, it's worth doing right. Her homes, her cooking, and her appearance are all testament to this.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DEVOTION -->
+<section id="devotion" class="devotion-section">
+  <div class="devotion-bg"></div>
+  <div class="devotion-inner">
+    <p class="section-eyebrow">Faith &amp; Devotion</p>
+    <h2 class="section-title">Jai Shri Ram —<br>Devotee of Hanuman Ji</h2>
+    <div class="divider"></div>
+    <p class="devotion-text">
+      Among all of Pooja's loves, her devotion to <strong style="color:rgba(255,255,255,0.9)">Lord Hanuman</strong> holds a
+      special place. In the great Veer — the symbol of strength, loyalty, and selfless service —
+      she finds both comfort and courage.
+    </p>
+    <p class="devotion-text">
+      Whether it's the Hanuman Chalisa in the morning, the small murti on the home altar,
+      or a quiet prayer before a big day, her faith is woven into the fabric of everyday life.
+      It grounds her, guides her, and reminds her what truly matters.
+    </p>
+    <div class="jai-hanuman">
+      <span class="diya">🪔</span>
+      Jai Bajrang Bali
+      <span class="diya">🪔</span>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL -->
+<section id="travels" class="travel-section">
+  <p class="section-eyebrow">The World &amp; Beyond</p>
+  <h2 class="section-title">Places That Made Her</h2>
+  <div class="divider"></div>
+  <p class="travel-intro">
+    Three places, three distinct chapters — each one adding a new flavour to who she is.
+    The explorer in Pooja is never quite satisfied; there's always another horizon to chase.
+  </p>
+  <div class="travel-grid">
+    <div class="place-card">
+      <div class="place-color pc-gujarat">🌅</div>
+      <div class="place-body">
+        <p class="place-name">Gujarat, India</p>
+        <p class="place-desc">Roots. Garba. The best theplas in the world. A culture so vibrant it stays with you wherever you go.</p>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="place-color pc-pune">🌿</div>
+      <div class="place-body">
+        <p class="place-name">Pune, India</p>
+        <p class="place-desc">The City of Culture. A chapter of independence, exploration, and new friendships that she still cherishes.</p>
+      </div>
+    </div>
+    <div class="place-card">
+      <div class="place-color pc-michigan">❄️</div>
+      <div class="place-body">
+        <p class="place-name">Michigan, USA</p>
+        <p class="place-desc">The Great Lakes State. Raising Kridha here, finding new adventures, and bringing a little Gujarat to the American Midwest.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUN FACTS -->
+<section class="facts-section">
+  <p class="section-eyebrow">At a Glance</p>
+  <h2 class="section-title">A Few Good Things to Know</h2>
+  <div class="divider"></div>
+  <div class="facts-grid">
+    <div class="fact-card">
+      <div class="fact-icon">🧩</div>
+      <p class="fact-value">3×3</p>
+      <p class="fact-label">Rubik's Cube Solver</p>
+    </div>
+    <div class="fact-card">
+      <div class="fact-icon">🌍</div>
+      <p class="fact-value">3</p>
+      <p class="fact-label">Cities Called Home</p>
+    </div>
+    <div class="fact-card">
+      <div class="fact-icon">🎲</div>
+      <p class="fact-value">5+</p>
+      <p class="fact-label">Games She Loves</p>
+    </div>
+    <div class="fact-card">
+      <div class="fact-icon">🪔</div>
+      <p class="fact-value">∞</p>
+      <p class="fact-label">Faith in Hanuman Ji</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-om">ॐ</span>
+  <p><strong>Pooja Zapadiya</strong></p>
+  <p>Gujarati at heart · Homemaker by choice · Explorer by nature</p>
+  <p style="margin-top: 1rem; font-size: 0.78rem;">From Gujarat, with love 🧡</p>
+</footer>
+
+</body>
+</html>
